@@ -3,13 +3,12 @@ const IMC = require("../models/IMC");
 const calculadoraController = {
   create: async (req, res) => {
     try {
-      const { data, peso, altura, id_usuario } = req.body;
+      const { peso, altura, id_usuario } = req.body;
 
       altura_metros = altura/100
 
       // criando o registro
       const imc = new IMC({
-        data,
         peso,
         altura,
         imc: peso / (altura_metros * altura_metros),
@@ -83,11 +82,10 @@ const calculadoraController = {
       const id = req.params.id;
 
       // recebendo os parâmetros do body
-      const { data, peso, altura } = req.body;
+      const { peso, altura } = req.body;
 
       // Montando objeto com os campos atualizados
       const imc = {
-        data,
         peso,
         altura
       };

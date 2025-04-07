@@ -4,9 +4,6 @@ const Schema = mongoose.Schema;
 
 const IMCSchema = new Schema({
 
-    data: {
-        type: Date,
-    },
     peso: {
         type: Number,
     },
