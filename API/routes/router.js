@@ -24,10 +24,11 @@ router.post("/login", loginController.post);
 //router.post("/imc", calculadoraController.create);
 
 router.route("/imc")
-  .get(checkToken, calculadoraController.getAll);
+  .post(checkToken, calculadoraController.create)
+  .get(checkToken, calculadoraController.getAll)
+
 
 router.route("/imc/:id")
-  .post(checkToken, calculadoraController.create)
   .get(checkToken, calculadoraController.get)
   .delete(checkToken, calculadoraController.delete)
   .put(checkToken, calculadoraController.update);

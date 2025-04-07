@@ -5,16 +5,16 @@ const Schema = mongoose.Schema;
 const IMCSchema = new Schema({
 
     data: {
-        type: String,
-    },
-    peso: {
-        type: String,
-    },
-    altura: {
         type: Date,
     },
+    peso: {
+        type: Number,
+    },
+    altura: {
+        type: Number,
+    },
     imc: {
-        type: String,
+        type: Number,
     },
     id_usuario:
     {
