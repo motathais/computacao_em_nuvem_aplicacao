@@ -5,14 +5,14 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "API Noob",
+      title: "API Calculadora de IMC",
       version: "1.0.0",
-      description: "Documentação API do Projeto Noob com Swagger",
+      description: "Documentação Calculadora de IMC",
     },
     servers: [
       {
-        url: "http://localhost:8001",
-        description: "Servidor local",
+        url: "https://cuddly-system-q7p7qq55w5c999p-3000.app.github.dev/",
+        description: "Servidor Codespace",
       },
     ],
     components: {
