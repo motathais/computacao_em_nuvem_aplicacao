@@ -1,0 +1,22 @@
+{
+    "name": "node-api",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
+    "forwardPorts": [3000],
+    "portsAttributes": {
+      "3000": {
+        "label": "API",
+        "onAutoForward": "openBrowser",
+        "visibility": "public"
+      }
+    },
+    "postCreateCommand": "npm install",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "esbenp.prettier-vscode",
+          "dbaeumer.vscode-eslint",
+          "humao.rest-client"
+        ]
+      }
+    }
+  }
