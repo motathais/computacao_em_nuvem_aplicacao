@@ -101,10 +101,10 @@ const usuarioController = {
       const id = req.params.id;
 
       // recebendo os parâmetros do body
-      const { nome, nascimento, email } = req.body;
+      const { nome, usuario, nascimento, email } = req.body;
 
       // Montando objeto com os campos atualizados
-      const usuario = {
+      const usuarios = {
         nome,
         usuario,
         nascimento,
@@ -112,7 +112,7 @@ const usuarioController = {
       };
 
       // Atualizando o usuário   
-      const updatedUsuario = await Usuarios.findByIdAndUpdate(id, usuario).select("-senha")
+      const updatedUsuario = await Usuarios.findByIdAndUpdate(id, usuarios).select("-senha")
 
 
       if (!updatedUsuario) {

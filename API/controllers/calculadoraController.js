@@ -1,35 +1,17 @@
 const IMC = require("../models/IMC");
 
-const bcrypt = require('bcrypt');
-
-const usuarioController = {
+const imcController = {
   create: async (req, res) => {
     try {
-      const { nome, usuario, nascimento, email, senha } = req.body;
-
-      // configurando hash de senha
-      const salt = await bcrypt.genSalt(12);
-      const hash = await bcrypt.hash(senha, salt);
-
-      // validando se usuário e apelido já existem
-      const usuarioExiste = await Usuarios.findOne({ email });
-      const apelidoExiste = await Usuarios.findOne({ apelido });
-
-      if (usuarioExiste) {
-        return res.status(401).json({ message: "O email inserido está em uso, por gentileza utilize outro." });
-      }
-
-      if (apelidoExiste) {
-        return res.status(401).json({ message: "O apelido inserido já está em uso, por gentileza utilize outro." });
-      }
+      const { data, peso, altura } = req.body;
 
       // criando o usuário
-      const usuarios = new Usuarios({
-        nome,
-        usuario,
-        nascimento,
-        email,
-        senha: hash,
+      const imc = new IMC({
+        data,
+        peso,
+        altura,
+        imc: peso / (altura * altura),
+        id_usuario: h,
       });
 
       // salvando o usuário
