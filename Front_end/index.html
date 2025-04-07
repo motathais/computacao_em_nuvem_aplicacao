@@ -4,64 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IMC App</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f2f5;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 400px;
-      margin: 50px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    input, button, select {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-    }
-    button {
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-    .nav button {
-      width: 48%;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: center;
-    }
-    th {
-      background-color: #007bff;
-      color: white;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="container" id="loginPage">
@@ -74,7 +17,10 @@
 
   <div class="container" id="registerPage" style="display:none;">
     <h2>Cadastro</h2>
+    <input type="text" id="registerName" placeholder="Nome">
     <input type="text" id="registerUser" placeholder="Usuário">
+    <input type="date" id="registerDate" placeholder="Nascimento">
+    <input type="email" id="registerEmail" placeholder="Email">
     <input type="password" id="registerPass" placeholder="Senha">
     <button onclick="register()">Cadastrar</button>
     <p>Já tem conta? <a href="#" onclick="showLogin()">Faça login</a></p>
@@ -89,7 +35,7 @@
 
     <div id="imcForm" style="display:none;">
       <input type="number" id="peso" placeholder="Peso (kg)">
-      <input type="number" id="altura" placeholder="Altura (m)">
+      <input type="number" id="altura" placeholder="Altura (cm)">
       <button onclick="salvarImc()">Salvar</button>
     </div>
 
@@ -101,6 +47,7 @@
             <th>Peso</th>
             <th>Altura</th>
             <th>IMC</th>
+            <th>Classificação</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -109,84 +56,8 @@
     </div>
   </div>
 
-  <script>
-    let currentUser = null;
-
-    function showRegister() {
-      document.getElementById('loginPage').style.display = 'none';
-      document.getElementById('registerPage').style.display = 'block';
-    }
-
-    function showLogin() {
-      document.getElementById('registerPage').style.display = 'none';
-      document.getElementById('loginPage').style.display = 'block';
-    }
-
-    function login() {
-      // Chamada à API real de login
-      currentUser = document.getElementById('loginUser').value;
-      document.getElementById('loginPage').style.display = 'none';
-      document.getElementById('dashboard').style.display = 'block';
-    }
-
-    function register() {
-      // Chamada à API real de cadastro
-      alert('Usuário cadastrado com sucesso!');
-      showLogin();
-    }
-
-    function showImcForm() {
-      document.getElementById('imcForm').style.display = 'block';
-      document.getElementById('imcList').style.display = 'none';
-    }
-
-    function loadImcList() {
-      document.getElementById('imcForm').style.display = 'none';
-      document.getElementById('imcList').style.display = 'block';
-
-      // Simulando chamada API (substituir pelo fetch real)
-      const dados = [
-        { data: '2025-04-01', peso: 70, altura: 1.75 },
-        { data: '2025-04-05', peso: 72, altura: 1.75 }
-      ];
-
-      const tabela = document.getElementById('tabelaImc');
-      tabela.innerHTML = '';
-      dados.forEach((item, index) => {
-        const imc = (item.peso / (item.altura * item.altura)).toFixed(2);
-        tabela.innerHTML += `
-          <tr>
-            <td>${item.data}</td>
-            <td>${item.peso}</td>
-            <td>${item.altura}</td>
-            <td>${imc}</td>
-            <td>
-              <button onclick="editarImc(${index})">Editar</button>
-              <button onclick="excluirImc(${index})">Excluir</button>
-            </td>
-          </tr>
-        `;
-      });
-    }
-
-    function salvarImc() {
-      const peso = parseFloat(document.getElementById('peso').value);
-      const altura = parseFloat(document.getElementById('altura').value);
-      if (peso && altura) {
-        alert(`IMC salvo: ${(peso / (altura * altura)).toFixed(2)}`);
-        loadImcList();
-      }
-    }
-
-    function editarImc(index) {
-      alert('Editar registro ' + index);
-      // Lógica de edição com chamada à API
-    }
-
-    function excluirImc(index) {
-      alert('Excluir registro ' + index);
-      // Lógica de exclusão com chamada à API
-    }
-  </script>
+  <script src="js/ui.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/imc.js"></script>
 </body>
 </html>
