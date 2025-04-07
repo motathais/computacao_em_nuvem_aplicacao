@@ -1,76 +1,74 @@
 const IMC = require("../models/IMC");
 
-const imcController = {
+const calculadoraController = {
   create: async (req, res) => {
     try {
       const { data, peso, altura } = req.body;
 
-      // criando o usuário
+      // criando o registro
       const imc = new IMC({
         data,
         peso,
         altura,
         imc: peso / (altura * altura),
-        id_usuario: h,
+        id_usuario,
       });
 
-      // salvando o usuário
-      await usuarios.save();
+      // salvando o IMC
+      await imc.save();
 
-      const { senha: _, ...usuarioSemSenha } = usuarios.toObject();
-
-      res.status(201).json({ usuarios: usuarioSemSenha, message: "Usuário criado com sucesso!" });
+      res.status(201).json({ imc, message: "IMC registrado com sucesso!" });
     } catch (error) {
       console.log(error);
       res.status(500).json({ message: "Erro ao processar a requisição." });
     }
   },
-  // função para buscar todos os usuários da lista via GET
+  // função para buscar todos os registros da lista via GET
   getAll: async (req, res) => {
     try {
-      // Exclui o campo 'senha' de todos os usuários
-      const usuarios = await Usuarios.find({}, '-senha');
+      // Exclui o campo 'senha' de todos os registros
+      const imc = await IMC.find();
 
-      res.json(usuarios);
+      res.json(imc);
     } catch (error) {
       console.log(error);
-      res.status(500).json({ message: "Erro ao buscar usuários." });
+      res.status(500).json({ message: "Erro ao buscar os registros." });
     }
   },
-  // função para buscar apenas um usuário passando o ID via GET
+  // função para buscar apenas um registro passando o ID via GET
   get: async (req, res) => {
     try {
       const id = req.params.id;
-      const usuario = await Usuarios.findById(id, '-senha'); // Exclui a senha
+      const imc = await IMC.findById(id); // Exclui a senha
 
-      if (!usuario) {
-        res.status(404).json({ msg: "Usuário não encontrado" });
+      if (!imc) {
+        res.status(404).json({ msg: "Registro não encontrado" });
         return;
       }
 
-      res.json(usuario);
+      res.json(imc);
     } catch (error) {
       console.log(error);
-      res.status(500).json({ message: "Erro ao buscar o usuário." });
+      res.status(500).json({ message: "Erro ao buscar o registro." });
     }
   },
-  // função para deletar o usuário passando ID via DELETE
+  // função para deletar o imc passando ID via DELETE
   delete: async (req, res) => {
     try {
       const id = req.params.id;
 
-      const usuario = await Usuarios.findById(id);
+      const imc = await IMC.findById(id);
 
-      if (!usuario) {
-        res.status(404).json({ msg: "Usuário não encontrado!" });
+      if (!imc) {
+        res.status(404).json({ msg: "Registro não encontrado!" });
         return;
       }
 
-      const deletedUsuario = await Usuarios.findByIdAndDelete(id).select("-senha");
+      const deletedIMC = await IMC.findByIdAndDelete(id);
 
       res.status(200).json({
-        deletedUsuario,
-        msg: "Usuário excluído com sucesso"
+        deletedIMC,
+        msg: "Registro excluído com sucesso"
       });
 
 
@@ -83,30 +81,29 @@ const imcController = {
       const id = req.params.id;
 
       // recebendo os parâmetros do body
-      const { nome, nascimento, email } = req.body;
+      const { data, peso, altura } = req.body;
 
       // Montando objeto com os campos atualizados
-      const usuario = {
-        nome,
-        usuario,
-        nascimento,
-        email
+      const imc = {
+        data,
+        peso,
+        altura
       };
 
-      // Atualizando o usuário   
-      const updatedUsuario = await Usuarios.findByIdAndUpdate(id, usuario).select("-senha")
+      // Atualizando o registro   
+      const updatedIMC = await IMC.findByIdAndUpdate(id);
 
 
-      if (!updatedUsuario) {
-        return res.status(404).json({ msg: "Usuário não encontrado." });
+      if (!updatedIMC) {
+        return res.status(404).json({ msg: "Registro não encontrado." });
       }
 
-      res.status(200).json({ updatedUsuario, msg: "Usuário atualizado com sucesso!" });
+      res.status(200).json({ updatedIMC, msg: "Registro atualizado com sucesso!" });
     } catch (error) {
       console.log(error);
-      res.status(500).json({ msg: "Erro ao processar a atualização do usuário." });
+      res.status(500).json({ msg: "Erro ao processar a atualização do registro." });
     }
   },
 };
 
-module.exports = usuarioController; 
+module.exports = calculadoraController; 

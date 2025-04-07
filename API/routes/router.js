@@ -2,6 +2,7 @@ const router = require("express").Router();
 
 const usuarioController = require("../controllers/usuarioController");
 const loginController = require("../controllers/loginController");
+const calculadoraController = require("../controllers/calculadoraController");
 const { checkToken } = require("../checkToken/checkToken");
 
 // Usuários
@@ -17,5 +18,19 @@ router.route("/usuarios/:id")
 
 // Login
 router.post("/login", loginController.post);
+
+// IMC
+
+//router.post("/imc", calculadoraController.create);
+
+router.route("/imc")
+  .get(checkToken, calculadoraController.getAll);
+
+router.route("/imc/:id")
+  .post(checkToken, calculadoraController.create)
+  .get(checkToken, calculadoraController.get)
+  .delete(checkToken, calculadoraController.delete)
+  .put(checkToken, calculadoraController.update);
+
 
 module.exports = router;
