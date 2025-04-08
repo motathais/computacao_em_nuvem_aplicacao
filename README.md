@@ -7,7 +7,7 @@ Repositório contendo uma aplicação desenvolvida para obtenção de conceito n
 
 🛠️ Tecnologias Utilizadas:
 
--Front-end: HTML, CSS, JavaScript
+- Front-end: HTML, CSS, JavaScript
 
 - Back-end: Node.js + Express
 
