@@ -1,21 +1,24 @@
 # computacao_em_nuvem_aplicacao
 Repositório contendo uma aplicação desenvolvida para obtenção de conceito na disciplina Computação em Nuvem II — Fatec Mauá.
 
-📌 Descrição
-Trata-se de uma aplicação simples para cálculo de IMC, desenvolvida com foco em práticas de desenvolvimento em nuvem, conteinerização e documentação de APIs.
+📌 Descrição:
 
-🛠️ Tecnologias Utilizadas
-Front-end: HTML, CSS, JavaScript
+- Trata-se de uma aplicação simples para cálculo de IMC, desenvolvida com foco em práticas de desenvolvimento em nuvem, conteinerização e documentação de APIs.
 
-Back-end: Node.js + Express
+🛠️ Tecnologias Utilizadas:
 
-Banco de Dados: MongoDB Atlas (não relacional)
+-Front-end: HTML, CSS, JavaScript
 
-Conteinerização: Docker
+- Back-end: Node.js + Express
 
-Documentação da API: Swagger
+- Banco de Dados: MongoDB Atlas (não relacional)
 
-🔗 Links Úteis
+- Conteinerização: Docker
+
+- Documentação da API: Swagger
+
+🔗 Links Úteis:
+
 🌐 Aplicação Web: front-end-app-imc.onrender.com
 
 ⚙️ API: api-imc-ezmt.onrender.com
