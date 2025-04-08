@@ -127,6 +127,7 @@ router.route("/imc/:id")
  * /api/login:
  *   post:
  *     summary: Login de usuário
+ *     tags: [Login]
  *     description: Realiza o login de um usuário e retorna um token JWT.
  *     requestBody:
  *       required: true
