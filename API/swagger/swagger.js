@@ -11,8 +11,8 @@ const options = {
     },
     servers: [
       {
-        url: "https://cuddly-system-q7p7qq55w5c999p-3000.app.github.dev/",
-        description: "Servidor Codespace",
+        url: "https://api-imc-ezmt.onrender.com/",
+        description: "Servidor Swagger",
       },
     ],
     components: {

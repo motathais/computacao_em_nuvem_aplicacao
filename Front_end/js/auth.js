@@ -6,7 +6,7 @@ async function login() {
   const usuario = document.getElementById('loginUser').value;
   const senha = document.getElementById('loginPass').value;
 
-  const res = await fetch('https://cuddly-system-q7p7qq55w5c999p-3000.app.github.dev/api/login', {
+  const res = await fetch('https://api-imc-ezmt.onrender.com/api/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ usuario, senha })
@@ -35,7 +35,7 @@ async function register() {
   const email = document.getElementById('registerEmail').value;
   const senha = document.getElementById('registerPass').value;
 
-  const res = await fetch('https://cuddly-system-q7p7qq55w5c999p-3000.app.github.dev/api/usuarios', {
+  const res = await fetch('https://api-imc-ezmt.onrender.com/api/usuarios', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ nome, usuario, nascimento, email, senha })
@@ -46,8 +46,5 @@ async function register() {
     showLogin();
   } else {
     alert('Erro ao cadastrar usuário.');
-    const errorData = await res.json(); // <--- Isso aqui pega a mensagem do backend
-  console.error('Erro:', errorData);  // <--- Mostra no console
-  alert('Erro ao cadastrar usuário: ' + (errorData?.mensagem || 'Erro desconhecido'));
   }
 }

@@ -28,7 +28,7 @@ async function salvarImc() {
     document.getElementById('imcForm').style.display = 'none';
     document.getElementById('imcList').style.display = 'block';
   
-    const res = await fetch('https://cuddly-system-q7p7qq55w5c999p-3000.app.github.dev/api/imc', {
+    const res = await fetch('https://api-imc-ezmt.onrender.com/api/imc', {
       headers: {
         'Authorization': `Bearer ${token}`
       }
@@ -74,7 +74,7 @@ async function salvarImc() {
   async function excluirImc(id) {
     if (!confirm('Tem certeza que deseja excluir este registro?')) return;
   
-    const res = await fetch(`https://cuddly-system-q7p7qq55w5c999p-3000.app.github.dev/api/imc/${id}`, {
+    const res = await fetch(`https://api-imc-ezmt.onrender.com/api/imc/${id}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${token}`
