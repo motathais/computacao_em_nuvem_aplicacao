@@ -54,7 +54,7 @@ async function salvarImc() {
           <td>${item.imc.toFixed(2)}</td>
           <td>${classificacao}</td>
           <td>
-            <button onclick="excluirImc('${item.id}')"><i class="fas fa-trash-alt"></i> Excluir
+            <button onclick="excluirImc('${item._id}')"><i class="fas fa-trash-alt"></i> Excluir
       </button>
           </td>
         </tr>
@@ -71,9 +71,22 @@ async function salvarImc() {
     return 'Obesidade grau III';
   }
   
-  function excluirImc(id) {
-    alert('Excluir registro ' + id);
-    // Implementar DELETE futuramente
+  async function excluirImc(id) {
+    if (!confirm('Tem certeza que deseja excluir este registro?')) return;
+  
+    const res = await fetch(`https://cuddly-system-q7p7qq55w5c999p-3000.app.github.dev/api/imc/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+  
+    if (res.ok) {
+      alert('Registro excluído com sucesso!');
+      loadImcList(); // Atualiza a tabela
+    } else {
+      alert('Erro ao excluir o registro');
+    }
   }
   
 

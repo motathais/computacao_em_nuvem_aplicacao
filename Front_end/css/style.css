@@ -24,11 +24,11 @@ body {
   input, button, select {
     width: 80%;
     padding: 10px;
-    margin: 0 auto 15px auto; /* centraliza horizontalmente e mantém espaço embaixo */
+    margin: 0 auto 15px auto; 
     border-radius: 5px;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    display: block; /* necessário pra o margin auto funcionar */
+    display: block; 
   }
   
   button {
@@ -69,18 +69,18 @@ body {
   }
 
   #imcList {
-    overflow-x: auto; /* Permite rolagem se necessário */
+    overflow-x: auto; 
   }
   
   #imcList table {
-    table-layout: fixed; /* Faz as colunas respeitarem a largura */
-    word-wrap: break-word; /* Quebra o conteúdo para não estourar */
-    border-radius: 8px; /* Deixa os cantinhos mais suaves */
-    overflow: hidden; /* Garante que nada vaze */
+    table-layout: fixed; 
+    word-wrap: break-word; 
+    border-radius: 8px; 
+    overflow: hidden; 
   }
   
   #imcList th, #imcList td {
-    padding: 12px 8px; /* Um pouco mais de espaço visual */
+    padding: 12px 8px; 
   }
   
   
