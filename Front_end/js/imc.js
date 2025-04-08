@@ -7,7 +7,7 @@ async function salvarImc() {
       return;
     }
   
-    const res = await fetch('https://cuddly-system-q7p7qq55w5c999p-3000.app.github.dev/api/imc', {
+    const res = await fetch('https://api-imc-ezmt.onrender.com/api/imc', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
