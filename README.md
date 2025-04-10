@@ -11,7 +11,7 @@ Repositório contendo uma aplicação desenvolvida para obtenção de conceito n
 
 - Back-end: Node.js + Express
 
-- Banco de Dados: MongoDB Atlas (não relacional)
+- Banco de Dados (não relacional): MongoDB Atlas
 
 - Conteinerização: Docker
 
