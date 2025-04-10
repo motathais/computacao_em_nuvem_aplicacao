@@ -1,5 +1,5 @@
 # computacao_em_nuvem_aplicacao
-Repositório contendo uma aplicação desenvolvida para obtenção de conceito na disciplina Computação em Nuvem II — Fatec Mauá.
+Repositório contendo uma aplicação desenvolvida para obtenção de conceito na disciplina Computação em Nuvem II — Fatec Mauá. (2025)
 
 📌 Descrição:
 
