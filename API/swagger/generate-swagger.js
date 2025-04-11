@@ -8,7 +8,7 @@ const options = {
       title: 'Minha API',
       version: '1.0.0',
     },
-    servers: [{ url: 'http://localhost:3000' }],
+    servers: [{ url: 'https://api-imc-ezmt.onrender.com' }],
   },
   apis: ["./swagger.js"],
 };
