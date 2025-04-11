@@ -29,7 +29,7 @@ conn();
 
 // Configuração do Swagger
 
-const setupSwagger = require("./swagger/swagger");
+const setupSwagger = require("./swagger/swagger-config");
 
 setupSwagger(app);
 
