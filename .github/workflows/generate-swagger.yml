@@ -1,0 +1,34 @@
+name: Gerar Swagger
+
+on:
+  push:
+    branches: [ main ]  # ou 'master', conforme seu repositório
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositório
+        uses: actions/checkout@v3
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Gerar swagger.json
+        run: node generate-swagger.js
+
+      - name: Commit e Push do swagger.json
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add swagger.json
+          git commit -m "chore: atualizar swagger.json automaticamente"
+          git push
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
