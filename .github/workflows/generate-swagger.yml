@@ -30,7 +30,7 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git add swagger.json
+          git add ./API/swagger/swagger.json
           git diff --quiet && echo "Sem mudanças no swagger.json" && exit 0
           git commit -m "chore: atualizar swagger.json automaticamente"
           git push
