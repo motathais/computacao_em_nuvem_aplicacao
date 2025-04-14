@@ -21,7 +21,7 @@ jobs:
         run: npm install
 
       - name: Gerar swagger.json
-        run: node generate-swagger.js
+        run: node ./swagger/generate-swagger.js
 
       - name: Commit e Push do swagger.json
         run: |
