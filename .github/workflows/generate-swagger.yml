@@ -24,7 +24,6 @@ jobs:
       - name: Gerar swagger.json
         working-directory: ./API/swagger
         run: node generate-swagger.js
-        
 
       - name: Commit e Push do swagger.json
         run: |
