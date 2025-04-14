@@ -18,10 +18,13 @@ jobs:
           node-version: '18'
 
       - name: Instalar dependências
+        working-directory: ./API
         run: npm install
 
       - name: Gerar swagger.json
-        run: node ./swagger/generate-swagger.js
+        working-directory: ./API/swagger
+        run: node generate-swagger.js
+        
 
       - name: Commit e Push do swagger.json
         run: |
